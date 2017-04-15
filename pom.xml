@@ -12,7 +12,8 @@
 		<module>hdfs-demo</module>
 		<module>hdfs-demo-two</module>
         <module>mad-reduce</module>
-    </modules>
+		<module>sqoop-demo</module>
+	</modules>
     <packaging>pom</packaging>
 
 	<name>bigdata-parent</name>
