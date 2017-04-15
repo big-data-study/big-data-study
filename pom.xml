@@ -10,7 +10,9 @@
 		<module>hadoop-install</module>
         <module>spring-hadoop</module>
 		<module>hdfs-demo</module>
-	</modules>
+		<module>hdfs-demo-two</module>
+        <module>mad-reduce</module>
+    </modules>
     <packaging>pom</packaging>
 
 	<name>bigdata-parent</name>
