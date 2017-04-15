@@ -21,7 +21,6 @@ public class HDFSArchitecture {
      */
 
     /**
-     * SNN同步元数据过程
      * NameNode
      * 1.是整个文件系统的管理节点，维护整个系统的目录树
      * 2.接收用户的操作请求（各种操作指令）
@@ -35,5 +34,29 @@ public class HDFSArchitecture {
      *  NameNode会维护一个fsimage磁盘文件，也就是namenode中的metedata(内存)的镜像，但是fsimage不会随时与
      *  namenode内存中的metedata保持一致，而是每隔一段时间通过合并edits文件来更新内容。
      *  SecondaryNameNode就是用来合并fsimage和edits文件来更新namenode的metedata的
+     */
+
+    /**
+     * SecondaryNameNode的工作机制
+     * HA(high ability:高可用)的一个解决方案。但不支持热备。配置即可
+     * 执行过程：从NameNode上下载元数据信息(fsimage,edits),然后把二者合并，生成新的fsimage，在本地保存，并将其
+     * 推送到NameNode,替换旧的fsimage
+     * 默认安装在NameNode节点上，但不安全
+     *
+     * 工作过程：
+     * 1.snn通知namenode切换edits文件
+     * 2.snn从namenode获得fsimageh和edits(通过http)
+     * 3.....
+     */
+
+    /**
+     * DataNode的机制
+     * 提供真实文件数据的存储服务
+     * 文件块(block):最基本的存储单位，对于文件内容而言，一个文件的长度大小是size，那么文件从0的偏移开始，按照固定的大小，
+     * 顺序对文件进行划分并编号，划分好的每一个块成为一个block.
+     * HDFS默认block的大小是125MB，以一个256MB的文件，共有256/128=2个block。
+     * 若一个200MB的文件会分成2block
+     * 不同于普通文件系统的是HDFS中，日过一个文件小于一个数据块的大小，并不占用整个数据块存储空间
+     * Relpication，多副本，默认是三个
      */
 }
