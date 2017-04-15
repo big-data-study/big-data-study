@@ -1,0 +1,11 @@
+<configuration>
+    <property>
+        <name>fs.defaultFS</name>
+        <value>hdfs://hdp01:9000</value>
+    </property>
+
+    <property>
+        <name>myGirl</name>
+        <value>girl</value>
+    </property>
+</configuration>
