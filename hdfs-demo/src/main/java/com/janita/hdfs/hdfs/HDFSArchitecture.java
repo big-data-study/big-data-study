@@ -1,4 +1,4 @@
-package com.janita.hdfs;
+package com.janita.hdfs.hdfs;
 
 /**
  * Created by Janita on 2017-04-15 13:24
