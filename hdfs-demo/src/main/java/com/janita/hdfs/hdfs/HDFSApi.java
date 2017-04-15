@@ -1,4 +1,4 @@
-package com.janita.hadoop;
+package com.janita.hdfs.hdfs;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.FSDataOutputStream;
@@ -8,7 +8,9 @@ import org.apache.hadoop.io.IOUtils;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.io.*;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.net.URI;
 
 /**
