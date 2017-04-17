@@ -15,7 +15,8 @@
 		<module>sqoop-demo</module>
 		<module>hive</module>
 		<module>sparktest</module>
-	</modules>
+        <module>package-main-jar</module>
+    </modules>
     <packaging>pom</packaging>
 
 	<name>bigdata-parent</name>
