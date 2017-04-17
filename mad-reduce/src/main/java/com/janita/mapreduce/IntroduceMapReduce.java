@@ -22,6 +22,12 @@ public class IntroduceMapReduce {
      *  第二个阶段汇总
      */
 
+    /**
+     * 实例：wordcount
+     * 一堆文本文件:在HDFS的/home目录下面的9个文本文件
+     * 需求：统计每个单词的出现次数
+     */
+
 
 
 }

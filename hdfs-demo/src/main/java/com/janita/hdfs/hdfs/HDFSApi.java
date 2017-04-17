@@ -42,7 +42,7 @@ public class HDFSApi {
 
     @Test
     public void testUpLoad() throws IOException {
-        InputStream in = new FileInputStream("d://swagger.log");
+        InputStream in = new FileInputStream("d://wordcount.txt");
         FSDataOutputStream out = fileSystem.create(new Path("/home/swagger2.log"));
         IOUtils.copyBytes(in,out,1024,true);
 

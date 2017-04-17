@@ -47,9 +47,12 @@ public class HDFSClient {
     @Test
     public void addFileToHDFS() throws IOException {
 
-        Path sourceFile = new Path("C:\\Users\\Administrator\\Desktop\\pic.png");
-        Path destFile = new Path(HDFS_PRE+"pic.png");
-        fileSystem.copyFromLocalFile(sourceFile,destFile);
+        Path sourceFile = new Path("d://wordcount.txt");
+        Path destFile ;
+        for (int i = 1;i< 10 ;i++){
+            destFile = new Path(HDFS_PRE+"wordcount.txt."+i);
+            fileSystem.copyFromLocalFile(sourceFile,destFile);
+        }
         fileSystem.close();
     }
 
@@ -82,7 +85,7 @@ public class HDFSClient {
      */
     @Test
     public void listFiles() throws IOException {
-        RemoteIterator<LocatedFileStatus> listFiles = fileSystem.listFiles(new Path(""),true);
+        RemoteIterator<LocatedFileStatus> listFiles = fileSystem.listFiles(new Path("/home"),true);
 
         while (listFiles.hasNext()){
             LocatedFileStatus fileStatus = listFiles.next();

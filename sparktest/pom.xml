@@ -8,6 +8,12 @@
     <artifactId>spark-test</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <parent>
+        <artifactId>bigdata-parent</artifactId>
+        <groupId>com.janita.bigdata</groupId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>s
+
     <dependencies>
         <dependency>
             <groupId>junit</groupId>
