@@ -25,6 +25,7 @@
             <artifactId>spring-data-hadoop</artifactId>
             <version>2.4.0.RELEASE</version>
         </dependency>
+
         <!-- hbase -->
         <dependency>
             <groupId>org.apache.hbase</groupId>

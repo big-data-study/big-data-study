@@ -16,7 +16,7 @@ public class WordCount {
     public static void main(String[] args) throws IOException, ClassNotFoundException, InterruptedException{
         AbstractApplicationContext context = new ClassPathXmlApplicationContext(
                 "applicationContext.xml", WordCount.class);
-      /*  log.info("Wordcount with HDFS copy Application Running");*/
+    /*    log.info("Wordcount with HDFS copy Application Running");*/
         context.registerShutdownHook();
 
     }
