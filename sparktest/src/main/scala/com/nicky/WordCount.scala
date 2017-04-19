@@ -24,8 +24,8 @@ object WordCount {
 
     /**
       * 创建SparkContext对象
-      * SparkContext 是Spark程序的所有功能的唯一入口，无论是采用Scal,Java,Python,R等
-      * 同时还会负则Spark程序往Master注册程序等
+      * SparkContext 是Spark程序的所有功能的唯一入口，无论是采用Scala,Java,Python,R等
+      * 同时还会负责Spark程序往Master注册程序等
       * SparkContext是整个Spark应用程序中最为至关重要的一个对象
       */
     val sc = new SparkContext(conf)
@@ -36,14 +36,14 @@ object WordCount {
 //      reduceByKey(_+_)按照key进行reduce，并将value累加
 //    saveAsTextFile("hdfs://node1.itcast.cn:9000/out")将结果写入到hdfs中
     /**
-      * 根据具体的数据来源(HDFS、Hbse、local Fs、DB、S3等通过SparkContext来创建RDD)
+      * 根据具体的数据来源(HDFS、Hbase、local Fs、DB、S3等通过SparkContext来创建RDD)
       * RDD创建有三种方式:根据外部的数据来源例 如HDFS、根据Scala集合、由其它的RDD操作
-      * 数据会被RDD划分成为一系列的Patitions,分配到每个Patition的数据属于一个Task的处理范畴
+      * 数据会被RDD划分成为一系列的Partitions,分配到每个Partition的数据属于一个Task的处理范畴
       */
     val path = "hdfs://192.168.100.12:9000/wordcount/input/sparktest.txt"
-    val lines = sc.textFile(path, 3)  //读取文 件，并设置为一个Patitions (相当于几个Task去执行)
+    val lines = sc.textFile(path, 3)  //读取文 件，并设置为3个Partitions (相当于几个Task去执行)
 
-    val mapArray = lines.flatMap { x => x.split(" ") } //对每一行的字符串进行单词拆分并把把有行的拆分结果通过flat合并成为一个结果
+    val mapArray = lines.flatMap { x => x.split(" ") } //对每一行的字符串进行单词拆分并把所有行的拆分结果通过flat合并成为一个结果
     val mapMap = mapArray.map { x => (x,1) }
 
     val result  =  mapMap.reduceByKey(_+_) //对相同的Key进行累加
